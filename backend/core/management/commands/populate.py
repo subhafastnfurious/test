@@ -1,3 +1,5 @@
+import time
+
 from decimal import Decimal
 import random
 
@@ -16,9 +18,11 @@ def office_space_factory(number):
         'Millennium Plaza', 'Oxford Tower', 'Palace of Culture and Science',
     ]
     for i in range(number):
+        #generate current timestring and append with name to have unique name
+        timestr = time.strftime("%Y%m%d-%H%M%S")
         yield {
             # TODO make building names unique
-            'name': building_names[i % len(building_names)],
+            'name': building_names[i % len(building_names)] + timestr,
             'street': 'Street 1',
             'city': 'City',
             'zip_code': '01-123',

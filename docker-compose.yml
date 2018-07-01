@@ -12,6 +12,7 @@ services:
       DJANGO_MANAGEPY_COLLECTSTATIC: 'yes'
       DJANGO_MANAGEPY_MIGRATE: 'yes'
       DJANGO_MANAGEPY_POPULATE: 'yes'
+      DJANGO_MANAGEPY_MIGRATION: 'yes'
   db:
     image: postgres:10.3
     environment:

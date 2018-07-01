@@ -9,8 +9,8 @@ done
 >&2 echo "Postgres is up - continuing"
 
 
-if [ "x$DJANGO_MANAGEPY_MIGRATE" = 'xon' ]; then
-  python manage.py makemigrationns --noinput
+if [ "x$DJANGO_MANAGEPY_MIGRATION" = 'xon' ]; then
+  python manage.py makemigrations --noinput
 fi
 
 
