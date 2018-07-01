@@ -1,0 +1,22 @@
+version: '3.6'
+
+services:
+  backend:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    ports:
+      - 8000:80
+    environment:
+      DATABASE_URL: '?'
+      DJANGO_MANAGEPY_COLLECTSTATIC: 'yes'
+      DJANGO_MANAGEPY_MIGRATE: 'yes'
+      DJANGO_MANAGEPY_POPULATE: 'yes'
+  db:
+    image: postgres:10.3
+    environment:
+      POSTGRES_DB: not_secret
+      POSTGRES_USER: not_secret
+      POSTGRES_PASSWORD: not_secret
+    volumes:
+      - ./srv/postgres:/var/lib/postgresql/data
