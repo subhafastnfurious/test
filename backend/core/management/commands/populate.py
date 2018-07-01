@@ -9,6 +9,7 @@ from django.core.management import BaseCommand
 from core.constants import LANDLORD, TENANT
 from core.models import CustomUser, OfficeSpace
 
+
 User = get_user_model()
 
 
@@ -55,3 +56,8 @@ class Command(BaseCommand):
         CustomUser.objects.create(type=LANDLORD, email='lan@lan.lan')
         CustomUser.objects.create(type=TENANT, email='ten@ten.ten')
         # TODO create superuser
+        superuser=CustomUser(email='foo@bar.com', password='bar')
+        superuser.is_superuser=True
+        superuser.is_staff=True
+        superuser.save()
+    
